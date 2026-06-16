@@ -2,7 +2,8 @@
 <html>
 
 <head>
-<title>Daisy Patnell</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
@@ -11,23 +12,102 @@ body {
     overflow: hidden;
 }
 
+/* BACKGROUND */
+
 .background {
     position: fixed;
+    top: 0;
+    left: 0;
+
     width: 100vw;
     height: 100vh;
+
     object-fit: cover;
+
+    z-index: -1;
 }
+
+/* GENERIC ICON CLASS */
 
 .icon {
     position: absolute;
 }
 
-/* Optional: make icons slightly smaller on phones */
+/* =========================
+   SHOWREEL CONTAINER
+========================= */
+
+.showreel {
+    position: absolute;
+
+    top: 18%;
+    left: 42%;
+
+    width: 31%;
+
+    aspect-ratio: 16 / 9;
+}
+
+/* Frame (back layer) */
+
+.showreel-frame {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
+/* Vimeo video (middle layer) */
+
+.showreel-video {
+    position: absolute;
+
+    top: 8%;
+    left: 8%;
+
+    width: 84%;
+    height: 70%;
+
+    border: none;
+
+    z-index: 2;
+}
+
+/* Label (top layer) */
+
+.showreel-label {
+    position: absolute;
+
+    bottom: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 35%;
+
+    z-index: 3;
+}
+
+/* FILM SECTION */
+
+.film-frame {
+    z-index: 1;
+}
+
+.film-image {
+    z-index: 2;
+}
+
+/* MOBILE TWEAK */
+
 @media (max-width: 768px) {
-    .icon {
-        transform: scale(0.8);
-        transform-origin: top left;
+
+    .showreel {
+        width: 45%;
     }
+
 }
 
 </style>
@@ -36,56 +116,52 @@ body {
 
 <body>
 
-<!-- Background -->
+<!-- BACKGROUND -->
 
 <img src="background.png" class="background">
 
-    
-       <!-- Clickable Vimeo Video's Frame -->
-    
-    <img src="frame2.png"
-         class="icon"
-         style="top:18%; left:42%; width:31%;">
-</a>
+<!-- =========================
+     SHOWREEL (ALL GROUPED)
+========================= -->
 
-<!-- Clickable Vimeo Video --> 
+<div class="showreel">
 
-<iframe
-    class="icon"
-    style="top:21%; left:45%; width:25%; height:25%;"
-    src="https://player.vimeo.com/video/1190585552?autoplay=1&muted=1&loop=1"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen>
-</iframe>
+    <!-- Frame -->
+    <img src="frame2.png" class="showreel-frame">
 
-           <!-- Clickable Vimeo Video's Label -->
-    
-    <img src="showreellabel.png"
-         class="icon"
-         style="top:43%; left:53%; width:10%;">
-</a>
+    <!-- Vimeo Video -->
+    <iframe
+        class="showreel-video"
+        src="https://player.vimeo.com/video/1190585552?autoplay=1&muted=1&loop=1"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+    </iframe>
 
-<!-- Clickable About Me Image -->
+    <!-- Label -->
+    <img src="showreellabel.png" class="showreel-label">
+
+</div>
+
+<!-- =========================
+     FILM SECTION
+========================= -->
+
+<img src="frame3.png"
+     class="icon film-frame"
+     style="top:55%; left:65%; width:15%;">
 
 <a href="films.html">
     <img src="film.png"
-         class="icon"
+         class="icon film-image"
          style="top:55%; left:65%; width:15%;">
 </a>
-    <!-- Clickable About Me Image's Frame -->
-    
-    <img src="frame3.png"
-         class="icon"
-         style="top:55%; left:65%; width:15%; height:25%;">
-</a>
 
-<!-- Video -->
+<!-- LOCAL VIDEO -->
 
 <video controls
        class="icon"
        style="top:25%; left:10%; width:25%;">
-    <source src="trailer.mp4">
+    <source src="trailer.mp4" type="video/mp4">
 </video>
 
 </body>
