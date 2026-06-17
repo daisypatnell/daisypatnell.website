@@ -21,6 +21,202 @@ body {
 
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
+
+    z-index: -1;
+}
+
+/* GALLERY LAYOUT */
+
+.gallery {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* EACH ITEM */
+
+.item {
+    position: relative;
+    width: 30%;
+    aspect-ratio: 3 / 4;
+}
+
+/* FRAME */
+
+.frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* IMAGE */
+
+.content-img {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+    width: 80%;
+    height: 70%;
+    object-fit: cover;
+
+    z-index: 2;
+}
+
+/* VIMEO */
+
+.video {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+    width: 80%;
+    height: 70%;
+
+    border: none;
+
+    z-index: 2;
+}
+
+/* LABEL */
+
+.label {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 60%;
+
+    z-index: 3;
+}
+
+/* CLICKABLE ITEMS */
+
+a {
+    text-decoration: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .item {
+        width: 80%;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<img src="background.png" class="background">
+
+<!-- GALLERY -->
+<div class="gallery">
+
+    <!-- ITEM 1 (CLICKABLE IMAGE) -->
+    <a href="page1.html">
+        <div class="item">
+
+            <img src="frame1.png" class="frame">
+
+            <img src="image1.jpg" class="content-img">
+
+            <img src="label.png" class="label">
+
+        </div>
+    </a>
+
+    <!-- ITEM 2 (VIMEO VIDEO) -->
+    <div class="item">
+
+        <img src="frame2.png" class="frame">
+
+        <iframe class="video"
+            src="https://player.vimeo.com/video/123456789?autoplay=1&muted=1&loop=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <img src="label2.png" class="label">
+
+    </div>
+
+    <!-- ITEM 3 (CLICKABLE IMAGE) -->
+    <a href="page3.html">
+        <div class="item">
+
+            <img src="frame3.png" class="frame">
+
+            <img src="image3.jpg" class="content-img">
+
+            <img src="label3.png" class="label">
+
+        </div>
+    </a>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
 
     object-fit: cover;
 
